@@ -42,12 +42,9 @@ class Service
         $this->httpClient = $httpClient;
     }
 
-    public function scan(string $filePath): Promise
+    public function scan(File $file): Promise
     {
-        return call(function() use ($filePath) {
-            /** @var File $file */
-            $file = yield new File($filePath);
-
+        return call(function() use ($file) {
             if ((yield $file->getSize()) > self::MAX_FILE_SIZE) {
                 throw new FileTooLarge($file, self::MAX_FILE_SIZE, yield $file->getSize());
             }

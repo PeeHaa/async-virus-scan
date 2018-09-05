@@ -10,13 +10,29 @@ use function Amp\File\exists;
 use function Amp\File\isfile;
 use function Amp\File\size;
 
-class File implements Promise
+class File
 {
     private $path;
 
-    public function __construct(string $path)
+    private function __construct() {}
+
+    public static function build(string $path): Promise
     {
-        $this->path = $path;
+        return call(function() use ($path) {
+            if (!yield exists($path)) {
+                throw new NotFound($path);
+            }
+
+            if (!yield isfile($path)) {
+                throw new InvalidFile($path);
+            }
+
+            $instance = new self();
+
+            $instance->path = $path;
+
+            return $instance;
+        });
     }
 
     public function getSize(): Promise
@@ -27,20 +43,5 @@ class File implements Promise
     public function getPath(): string
     {
         return $this->path;
-    }
-
-    public function onResolve(callable $onResolved): void
-    {
-        call(function() use ($onResolved) {
-            if (!yield exists($this->path)) {
-                throw new NotFound($this->path);
-            }
-
-            if (!yield isfile($this->path)) {
-                throw new InvalidFile($this->path);
-            }
-
-            $onResolved(null, $this);
-        });
     }
 }
