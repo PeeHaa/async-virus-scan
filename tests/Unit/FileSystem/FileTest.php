@@ -45,7 +45,7 @@ class FileTest extends TestCase
             /** @var File $file */
             $file = yield File::build(TEST_DATA_DIR . '/test-file.txt');
 
-            $this->assertSame(10, yield $file->getSize());
+            $this->assertSame(8, yield $file->getSize());
         });
     }
 
