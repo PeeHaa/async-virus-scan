@@ -15,7 +15,7 @@ class FileTest extends TestCase
         $this->expectException(NotFound::class);
         $this->expectExceptionMessage('The file ' . TEST_DATA_DIR . '/non-existent.txt could not be found.');
 
-        Loop::run(function() {
+        Loop::run(static function() {
             yield File::build(TEST_DATA_DIR . '/non-existent.txt');
         });
     }
@@ -25,7 +25,7 @@ class FileTest extends TestCase
         $this->expectException(InvalidFile::class);
         $this->expectExceptionMessage(TEST_DATA_DIR . '/test-directory is not a file.');
 
-        Loop::run(function() {
+        Loop::run(static function() {
             yield File::build(TEST_DATA_DIR . '/test-directory');
         });
     }

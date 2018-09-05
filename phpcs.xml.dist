@@ -99,4 +99,12 @@
          <exclude-pattern>*/src/Service/Exception.php</exclude-pattern>
      </rule>
 
+    <!-- disable specific sniffs for classes with empty constructors -->
+    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine">
+        <exclude-pattern>*/src/FileSystem/File.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore">
+        <exclude-pattern>*/src/FileSystem/File.php</exclude-pattern>
+    </rule>
 </ruleset>

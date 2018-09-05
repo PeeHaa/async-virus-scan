@@ -3,9 +3,6 @@
 namespace PeeHaa\AsyncVirusScanTest\Unit\VirusTotal;
 
 use Amp\Artax\Request;
-use Amp\Artax\Response;
-use Amp\ByteStream\InputStream;
-use Amp\ByteStream\Message;
 use Amp\Loop;
 use Amp\Success;
 use PeeHaa\AsyncVirusScan\Http\Client;

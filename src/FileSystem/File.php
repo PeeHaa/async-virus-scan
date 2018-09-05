@@ -18,7 +18,7 @@ class File
 
     public static function build(string $path): Promise
     {
-        return call(function() use ($path) {
+        return call(static function() use ($path) {
             if (!yield exists($path)) {
                 throw new NotFound($path);
             }

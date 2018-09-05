@@ -44,6 +44,7 @@ class ForbiddenResponse implements Response
         return null;
     }
 
+    // phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
     public function hasHeader(string $field): bool
     {
         return false;
@@ -58,6 +59,7 @@ class ForbiddenResponse implements Response
     {
         return [];
     }
+    // phpcs:enable
 
     public function getHeaders(): array
     {
