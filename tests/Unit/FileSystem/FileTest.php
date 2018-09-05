@@ -49,13 +49,13 @@ class FileTest extends TestCase
         });
     }
 
-    public function getPath()
+    public function testGetPath()
     {
         Loop::run(function() {
             /** @var File $file */
             $file = yield File::build(TEST_DATA_DIR . '/test-file.txt');
 
-            $this->assertSame(TEST_DATA_DIR . '/test-file.txt', yield $file->getPath());
+            $this->assertSame(TEST_DATA_DIR . '/test-file.txt', $file->getPath());
         });
     }
 }
