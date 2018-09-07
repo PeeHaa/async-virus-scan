@@ -62,8 +62,8 @@ before_script:
 
 script:
   - if [ "$cs" = 1 ]; then vendor/bin/phpcs -s; fi;
-  - if [ -z "$integration" ]; then phpdbg -qrr vendor/bin/phpunit --testsuite AsyncVirusScanUnitTestSuite --coverage-text --coverage-clover build/logs/clover.xml; fi;
-  - if [ "$integration" = 1 ]; then phpdbg -qrr vendor/bin/phpunit --testsuite AsyncVirusScanIntegrationTestSuite --coverage-text --coverage-clover build/logs/clover.xml; fi;
+  - if [ -z "$integration" ] && [ -z "$cs" ]; then phpdbg -qrr vendor/bin/phpunit --testsuite AsyncVirusScanUnitTestSuite --coverage-text --coverage-clover build/logs/clover.xml; fi;
+  - if [ "$integration" = 1 ] && [ -z "$cs" ]; then phpdbg -qrr vendor/bin/phpunit --testsuite AsyncVirusScanIntegrationTestSuite --coverage-text --coverage-clover build/logs/clover.xml; fi;
 
 after_success:
   - travis_retry php php-coveralls.phar
