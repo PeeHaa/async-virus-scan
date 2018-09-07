@@ -4,39 +4,39 @@ language: php
 
 matrix:
   include:
-    - name: 'PHP 7.2 Unit Test Suite With Locked Dependencies'
+    - name: '[UNIT] PHP 7.2 With Locked Dependencies'
       php: '7.2'
-    - name: 'PHP 7.2 Unit Test Suite With Lowest Dependencies'
+    - name: '[UNIT] PHP 7.2 With Lowest Dependencies'
       php: '7.2'
       env: dependencies=lowest
-    - name: 'PHP 7.2 Unit Test Suite With Highest Dependencies'
+    - name: '[UNIT] PHP 7.2 With Highest Dependencies'
       php: '7.2'
       env: dependencies=highest
-    - name: 'PHP Nightly Unit Test Suite With Locked Dependencies'
+    - name: '[UNIT] PHP Nightly With Locked Dependencies'
       php: nightly
-    - name: 'PHP Nightly Unit Test Suite With Highest Dependencies'
+    - name: '[UNIT] PHP Nightly With Highest Dependencies'
       php: nightly
       env: dependencies=lowest
-    - name: 'PHP Nightly Unit Test Suite With Lowest Dependencies'
+    - name: '[UNIT] PHP Nightly With Lowest Dependencies'
       php: nightly
       env: dependencies=highest
 
-    - name: 'PHP 7.2 Integration Test Suite With Locked Dependencies'
+    - name: '[INTEGRATION] PHP 7.2 With Locked Dependencies'
       php: '7.2'
       env: integration=1
-    - name: 'PHP 7.2 Integration Test Suite With Lowest Dependencies'
+    - name: '[INTEGRATION] PHP 7.2 With Lowest Dependencies'
       php: '7.2'
       env: dependencies=lowest integration=1
-    - name: 'PHP 7.2 Integration Test Suite With Highest Dependencies'
+    - name: '[INTEGRATION] PHP 7.2 With Highest Dependencies'
       php: '7.2'
       env: dependencies=highest integration=1
-    - name: 'PHP Nightly Integration Test Suite With Locked Dependencies'
+    - name: '[INTEGRATION] PHP Nightly With Locked Dependencies'
       php: nightly
       env: integration=1
-    - name: 'PHP Nightly Integration Test Suite With Highest Dependencies'
+    - name: '[INTEGRATION] PHP Nightly With Highest Dependencies'
       php: nightly
       env: dependencies=lowest integration=1
-    - name: 'PHP Nightly Integration Test Suite With Lowest Dependencies'
+    - name: '[INTEGRATION] PHP Nightly With Lowest Dependencies'
       php: nightly
       env: dependencies=highest integration=1
 
