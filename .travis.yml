@@ -18,9 +18,13 @@ matrix:
       env: dependencies=highest
 
     - php: '7.2'
+      env: integration=1
+    - php: '7.2'
       env: dependencies=lowest integration=1
     - php: '7.2'
       env: dependencies=highest integration=1
+    - php: nightly
+      env: integration=1
     - php: nightly
       env: dependencies=lowest integration=1
     - php: nightly
