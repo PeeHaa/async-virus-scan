@@ -2,32 +2,42 @@ sudo: false
 
 language: php
 
-php:
-  - '7.2'
-  - nightly
-
 matrix:
   include:
-    - php: '7.2'
+    - name: 'PHP 7.2 Unit Test Suite With Locked Dependencies'
+      php: '7.2'
+    - name: 'PHP 7.2 Unit Test Suite With Lowest Dependencies'
+      php: '7.2'
       env: dependencies=lowest
-    - php: '7.2'
+    - name: 'PHP 7.2 Unit Test Suite With Highest Dependencies'
+      php: '7.2'
       env: dependencies=highest
-    - php: nightly
+    - name: 'PHP Nightly Unit Test Suite With Locked Dependencies'
+      php: nightly
+    - name: 'PHP Nightly Unit Test Suite With Highest Dependencies'
+      php: nightly
       env: dependencies=lowest
-    - php: nightly
+    - name: 'PHP Nightly Unit Test Suite With Lowest Dependencies'
+      php: nightly
       env: dependencies=highest
 
-    - php: '7.2'
+    - name: 'PHP 7.2 Integration Test Suite With Locked Dependencies'
+      php: '7.2'
       env: integration=1
-    - php: '7.2'
+    - name: 'PHP 7.2 Integration Test Suite With Lowest Dependencies'
+      php: '7.2'
       env: dependencies=lowest integration=1
-    - php: '7.2'
+    - name: 'PHP 7.2 Integration Test Suite With Highest Dependencies'
+      php: '7.2'
       env: dependencies=highest integration=1
-    - php: nightly
+    - name: 'PHP Nightly Integration Test Suite With Locked Dependencies'
+      php: nightly
       env: integration=1
-    - php: nightly
+    - name: 'PHP Nightly Integration Test Suite With Highest Dependencies'
+      php: nightly
       env: dependencies=lowest integration=1
-    - php: nightly
+    - name: 'PHP Nightly Integration Test Suite With Lowest Dependencies'
+      php: nightly
       env: dependencies=highest integration=1
 
 before_install:
