@@ -1,0 +1,1 @@
+This is a harmless sample file and should come back clean.
