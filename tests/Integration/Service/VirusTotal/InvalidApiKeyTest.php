@@ -23,7 +23,7 @@ class InvalidApiKeyTest extends TestCase
 
         $service    = new Service($apiKey, $httpClient);
 
-        Loop::run(function() use ($service) {
+        Loop::run(static function() use ($service) {
             yield $service->scan(yield File::build(TEST_DATA_DIR . '/samples/clean.txt'));
         });
     }
