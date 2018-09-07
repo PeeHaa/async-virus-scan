@@ -4,6 +4,13 @@ language: php
 
 matrix:
   include:
+    - name: '[CS] PHP 7.2'
+      php: '7.2'
+      env: cs=1
+    - name: '[CS] PHP Nightly'
+      php: nightly
+      env: cs=1
+
     - name: '[UNIT] PHP 7.2 With Locked Dependencies'
       php: '7.2'
     - name: '[UNIT] PHP 7.2 With Lowest Dependencies'
@@ -54,8 +61,8 @@ before_script:
   - if [ "$dependencies" = "highest" ]; then travis_retry composer update -n; fi;
 
 script:
+  - if [ "$cs" = 1 ]; then vendor/bin/phpcs -s; fi;
   - if [ -z "$integration" ]; then phpdbg -qrr vendor/bin/phpunit --testsuite AsyncVirusScanUnitTestSuite --coverage-text --coverage-clover build/logs/clover.xml; fi;
-  - if [ -z "$integration" ]; then vendor/bin/phpcs -s; fi;
   - if [ "$integration" = 1 ]; then phpdbg -qrr vendor/bin/phpunit --testsuite AsyncVirusScanIntegrationTestSuite --coverage-text --coverage-clover build/logs/clover.xml; fi;
 
 after_success:
