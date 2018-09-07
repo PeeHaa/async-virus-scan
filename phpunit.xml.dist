@@ -11,8 +11,11 @@
          bootstrap="tests/bootstrap.php"
 >
     <testsuites>
-        <testsuite name="Async Virus Scan Unit Test Suite">
+        <testsuite name="AsyncVirusScanUnitTestSuite">
             <directory>./tests/Unit/</directory>
+        </testsuite>
+        <testsuite name="AsyncVirusScanIntegrationTestSuite">
+            <directory>./tests/Integration/</directory>
         </testsuite>
     </testsuites>
 
