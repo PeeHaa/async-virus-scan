@@ -19,7 +19,7 @@ class CleanFileTest extends TestCase
 
         $service    = new Service($apiKey, $httpClient);
 
-        Loop::run(static function() use ($service) {
+        Loop::run(function() use ($service) {
             $result = yield $service->scan(yield File::build(TEST_DATA_DIR . '/samples/clean.txt'));
 
             $this->assertFalse($result);
